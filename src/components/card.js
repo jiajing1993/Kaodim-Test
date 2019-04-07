@@ -22,8 +22,11 @@ export default class card extends Component {
       <div>
         <p>{question.prompt}</p>
         <Input key={question.id} question={question} greet={this.onGreet}></Input>
-        <button>Previous</button>
-        <button disabled={this.state.disabled}> Next</button>
+        { this.props.order !== "first" && <button>Previous</button> }
+        { this.props.order !== "last"
+          ? <button disabled={this.state.disabled}> Next</button>
+          : <button disabled={this.state.disabled}> Submit</button>
+        }
       </div>
     )
   }
