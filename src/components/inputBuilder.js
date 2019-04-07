@@ -14,7 +14,7 @@ export default class inputBuilder extends Component {
   onChange = (event) => {
     const length = this.props.question.min_char_length
     let validLength = length && event.target.value.length >= length
-    this.props.greet(!validLength);
+    this.props.handleInput(!validLength, event.target.value);
   }
 
   render() {
