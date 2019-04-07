@@ -2,7 +2,7 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Input from "../components/inputBuilder"
+import Card from "../components/card"
 import * as data from "../data/questions.json"
 
 const IndexPage = () => {
@@ -13,7 +13,7 @@ const IndexPage = () => {
       {
         data.questions.map((question) => {
           return (
-            <Input key={question.id} question={question}></Input>
+            <Card key={question.id} question={question} />
           )
         })
       }

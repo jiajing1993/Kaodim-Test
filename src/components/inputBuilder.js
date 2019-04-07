@@ -12,22 +12,15 @@ export default class inputBuilder extends Component {
   }
 
   onChange = (event) => {
-    let length = this.props.question.min_char_length
-    if (this.props.question.is_required){
-      if ( length && event.target.value.length >= length ){
-        console.log(event.target.value);
-        console.log("trigger back to parent")
-      }
-    }else {
-      console.log("trigger back to parent")
-    }
+    const length = this.props.question.min_char_length
+    let validLength = length && event.target.value.length >= length
+    this.props.greet(!validLength);
   }
 
   render() {
     const question = this.props.question
     return (
       <div>
-        <p>{this.props.question.prompt}</p>
         <input
           type={this.inputTypeIdentifier(question.question_type)}
           name={`question${question.id}`} 
