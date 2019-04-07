@@ -13,7 +13,7 @@ const IndexPage = () => {
       {
         data.questions.map((question) => {
           return (
-            <Input key={question.id} title={question.prompt}></Input>
+            <Input key={question.id} question={question}></Input>
           )
         })
       }
