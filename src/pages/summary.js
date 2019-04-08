@@ -27,8 +27,10 @@ const SummaryPage = () => {
                   state.records.map((record, index) => {
                     return (
                       <div className="summary" key={index}>
-                        <p className="summary-title">{ record.question }</p>
-                        <p className="summary-answer">{record.answer}</p>
+                        
+                        { typeof record.question === "text" ? (<p className="summary-title">{ record.question }</p>) : (
+                          <img src={record.answer} width="50%"></img>
+                        )}
                       </div>
                     )
                   })

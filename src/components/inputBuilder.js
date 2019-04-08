@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class inputBuilder extends Component {
   constructor(props) {
     super(props);
-    this.state = { counter: 0 };
+    this.state = { img: "" };
   }
 
   inputTypeIdentifier = (string) => {
@@ -17,14 +17,38 @@ export default class inputBuilder extends Component {
     this.props.handleInput(!validLength, event.target.value);
   }
 
+  onCheck = (event) => {
+    this.props.handleInput(false, event.target.value);
+  }
+
+  onUpload = (event) => {
+    const imgURL = URL.createObjectURL(event.target.files[0])
+    this.props.handleInput(false, imgURL);
+    this.setState({img: imgURL })
+  }
+
   render() {
     const question = this.props.question
+    const type = this.inputTypeIdentifier(question.question_type)
     return (
       <div>
-        <input
-          type={this.inputTypeIdentifier(question.question_type)}
-          name={`question${question.id}`} 
-          onChange={this.onChange} />
+        { type === "text" && <input type="text" name={`question${question.id}`} onChange={this.onChange} />}
+        { type === "radio" && question.options.map((option, index) => {
+          return (
+            <div key={index}>
+              <input type="radio" value={option} name={`rbi${question.id}`} onChange={this.onCheck}/>
+              <label>{option}</label>
+            </div>
+          )
+        })}
+        { type === "file" && 
+          (
+            <div>
+              <input type="file" name={`question${question.id}`} onChange={this.onUpload}/>
+              <img src={this.state.img} width="50%"></img>
+            </div>
+          )
+        }
       </div>
     )
   }
