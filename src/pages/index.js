@@ -1,38 +1,52 @@
-import React from "react"
+import React, { Component } from 'react'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/card"
 import * as data from "../data/questions.json"
 
-const IndexPage = () => {
-  function arrayOrder(index, totalLength){
-    if (index === totalLength - 1){
-      return "last"
-    }else if(index === 0){
-      return "first"
-    }else {
-      return "middle"
+class index extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      position: "0",
     }
+  }
+
+  onHandleSlider = (order) => {
+    console.log(order)
+    this.setState({
+      position: order,
+    })
   };
-  return (
-    <Layout>
+
+  render(){
+    return (
+      <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <h1>{ data.title }</h1>
       <div className="card-lists">
-        <div className="card-lists-slider">
+        <div className="card-lists-slider" style={{
+          'transform': `translateX(${this.state.position}%)`
+        }}>
           {
             data.questions.map((question, index) => {
               return (
-                <Card key={question.id} order={arrayOrder(index, data.questions.length)} question={question} />
+                <Card
+                  key={question.id} 
+                  order={index}
+                  maxLength={data.questions.length} 
+                  question={question} 
+                  handleSlider={this.onHandleSlider}
+                />
               )
             })
           }
         </div>
       </div>
-      
     </Layout>
-  )
+    )
+  }
 }
 
-export default IndexPage
+export default index

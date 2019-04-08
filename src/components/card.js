@@ -18,27 +18,38 @@ class Card extends Component {
       question: this.props.question.prompt,
       answer: this.state.answer
     })
+    console.log(e.target.dataset.submit === "true")
     if(e.target.dataset.submit === "true"){
       navigate("/summary")
+    }else {
+      this.props.handleSlider(`-${(this.props.order + 1) * 100 }`);
     }
+  }
+
+  handlePreviousButton = (e) => {
+    e.preventDefault();
+    this.props.handleSlider(`-${(this.props.order - 1) * 100 }`);
   }
 
   onHandleInput = (status, input) => {
     this.setState({
       disabled: status,
       answer: input
-    })
+    })  
   }
 
   render() {
     const question = this.props.question
+    const isSubmitButton = this.props.order === (this.props.maxLength - 1)
+    const isPreviousButtonNeeded = this.props.order !== 0
+    console.log(isSubmitButton)
     return (
       <div className="card">
         <p>{question.prompt}</p>
         <Input key={question.id} question={question} handleInput={this.onHandleInput}></Input>
-        { this.props.order !== "first" && <button className="previous">Previous</button> }
-        <button className="next" disabled={this.state.disabled} onClick={this.handleNextButton} data-submit={this.props.order === "last"}>
-          { this.props.order !== "last" ? "Next" : "Submit"}
+        { isPreviousButtonNeeded && <button className="previous" onClick={this.handlePreviousButton} >Previous</button> }
+        <button className="next" disabled={this.state.disabled} onClick={this.handleNextButton} data-submit={isSubmitButton}>
+          { isSubmitButton ? "Submit" : "Next"}
         </button>
       </div>
     )

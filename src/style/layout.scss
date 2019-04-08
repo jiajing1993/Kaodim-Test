@@ -11,7 +11,7 @@ body {
     overflow: hidden;
     .card-lists-slider {
       display: flex;
-      transform: translateX(-0%)
+      transition: all 0.5s;
     }
 
     .card {
@@ -45,6 +45,10 @@ body {
     font-size: 16px;
     border-radius: 5px;
     color: white;
+    &:disabled {
+      background: #dddddd !important;
+    }
+
     &.next, &.previous {
       position: absolute;
       bottom: 15px;
