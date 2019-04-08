@@ -14,7 +14,6 @@ class index extends Component {
   }
 
   onHandleSlider = (order) => {
-    console.log(order)
     this.setState({
       position: order,
     })

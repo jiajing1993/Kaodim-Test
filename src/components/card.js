@@ -14,12 +14,20 @@ class Card extends Component {
 
   handleNextButton = (e) => {
     e.preventDefault();
+    this.addRecord(this.props.question.id, this.props.question.prompt, this.state.answer)
+    this.next(e.target.dataset.submit === "true")
+  }
+
+  addRecord = (id, question, answer) =>{
     this.context.addNewRecord({
-      question: this.props.question.prompt,
-      answer: this.state.answer
+      id: id,
+      question: question,
+      answer: answer
     })
-    console.log(e.target.dataset.submit === "true")
-    if(e.target.dataset.submit === "true"){
+  }
+
+  next = (isSubmit) => {
+    if(isSubmit){
       navigate("/summary")
     }else {
       this.props.handleSlider(`-${(this.props.order + 1) * 100 }`);
@@ -42,7 +50,7 @@ class Card extends Component {
     const question = this.props.question
     const isSubmitButton = this.props.order === (this.props.maxLength - 1)
     const isPreviousButtonNeeded = this.props.order !== 0
-    console.log(isSubmitButton)
+
     return (
       <div className="card">
         <p>{question.prompt}</p>
