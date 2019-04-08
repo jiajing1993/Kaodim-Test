@@ -7,10 +7,13 @@ body {
   a { text-decoration: none; }
   main {
     padding: 10px;
-    max-width: 420px;
-    margin: 0 auto;
+    max-width: 450px;
+    margin: 0 auto; 
+    overflow: hidden;
+    border: 1px solid black;
   }
   .card-lists {
+    
     .card-lists-slider {
       display: flex;
       transition: all 0.5s;
@@ -20,7 +23,7 @@ body {
       flex: 1;
       background: #34495e;
       min-height: 300px;
-      min-width: 100%;
+      min-width: calc(80% - 10px);
       padding: 10px;
       border-radius: 5px;
       color: white;

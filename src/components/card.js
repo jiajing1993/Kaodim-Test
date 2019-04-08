@@ -30,13 +30,13 @@ class Card extends Component {
     if(isSubmit){
       navigate("/summary")
     }else {
-      this.props.handleSlider(`-${(this.props.order + 1) * 100 }`);
+      this.props.handleSlider(`-${(this.props.order + 1) * 80 }`);
     }
   }
 
   handlePreviousButton = (e) => {
     e.preventDefault();
-    this.props.handleSlider(`-${(this.props.order - 1) * 100 }`);
+    this.props.handleSlider(`-${(this.props.order - 1) * 80 }`);
   }
 
   onHandleInput = (status, input) => {
