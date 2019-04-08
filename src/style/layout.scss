@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
   * { box-sizing: border-box; }
-  h1, h2, h3, h4, h5, p { margin: 0; padding: 0;}
+  h1, h2, h3, h4, h5, p { margin: 0; padding: 0; }
+  a { text-decoration: none; }
   main {
-    width: 90%;
-    border: 1px solid black;
+    padding: 10px;
     max-width: 420px;
     margin: 0 auto;
   }
   .card-lists {
-    overflow: hidden;
     .card-lists-slider {
       display: flex;
       transition: all 0.5s;
@@ -20,10 +22,14 @@ body {
       min-height: 300px;
       min-width: 100%;
       padding: 10px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
       border-radius: 5px;
       color: white;
       position: relative;
+      margin-right: 10px;
+      .question-title {
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
     }
   }
 
@@ -36,15 +42,18 @@ body {
     background: #eceff1;
     box-shadow: 0px 2px 3px rgba(0,0,0,0.2);
     border: 0;
+    padding: 15px;
   }
 
-  button {
+  button, a.btn {
     padding: 10px 30px;
     outline: 0;
     border: 0;
     font-size: 16px;
     border-radius: 5px;
     color: white;
+    background: #16a085;
+    text-align: center;
     &:disabled {
       background: #dddddd !important;
     }
@@ -67,5 +76,10 @@ body {
     &:hover {
       cursor: pointer;
     }
+  }
+  .form-title {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-align: center;
   }
 }

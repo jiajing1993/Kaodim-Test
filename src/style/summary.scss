@@ -1,0 +1,26 @@
+.summary-card {
+  background: #686de0;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+
+  .summary {
+    padding: 10px 0px;
+    border-bottom: 2px solid white;
+    &:last-child {
+      border: 0
+    }
+    p.summary-title {
+      color: #130f40;
+      font-weight: bold;
+    }
+    p.summary-answer {
+      color: #30336b;
+    }
+  }
+}
+
+.edit-btn {
+  margin-top: 10px;
+  display: block;
+}

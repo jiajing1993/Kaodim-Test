@@ -53,7 +53,7 @@ class Card extends Component {
 
     return (
       <div className="card">
-        <p>{question.prompt}</p>
+        <p className="question-title">{question.prompt}</p>
         <Input key={question.id} question={question} handleInput={this.onHandleInput}></Input>
         { isPreviousButtonNeeded && <button className="previous" onClick={this.handlePreviousButton} >Previous</button> }
         <button className="next" disabled={this.state.disabled} onClick={this.handleNextButton} data-submit={isSubmitButton}>
