@@ -19,13 +19,18 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <h1>{ data.title }</h1>
-      {
-        data.questions.map((question, index) => {
-          return (
-            <Card key={question.id} order={arrayOrder(index, data.questions.length)} question={question} />
-          )
-        })
-      }
+      <div className="card-lists">
+        <div className="card-lists-slider">
+          {
+            data.questions.map((question, index) => {
+              return (
+                <Card key={question.id} order={arrayOrder(index, data.questions.length)} question={question} />
+              )
+            })
+          }
+        </div>
+      </div>
+      
     </Layout>
   )
 }

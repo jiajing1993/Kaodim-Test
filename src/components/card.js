@@ -33,11 +33,11 @@ class Card extends Component {
   render() {
     const question = this.props.question
     return (
-      <div>
+      <div className="card">
         <p>{question.prompt}</p>
         <Input key={question.id} question={question} handleInput={this.onHandleInput}></Input>
-        { this.props.order !== "first" && <button>Previous</button> }
-        <button disabled={this.state.disabled} onClick={this.handleNextButton} data-submit={this.props.order === "last"}>
+        { this.props.order !== "first" && <button className="previous">Previous</button> }
+        <button className="next" disabled={this.state.disabled} onClick={this.handleNextButton} data-submit={this.props.order === "last"}>
           { this.props.order !== "last" ? "Next" : "Submit"}
         </button>
       </div>

@@ -1,9 +1,67 @@
 body {
+  * { box-sizing: border-box; }
+  h1, h2, h3, h4, h5, p { margin: 0; padding: 0;}
   main {
-    border: 1px solid black;
     width: 90%;
+    border: 1px solid black;
     max-width: 420px;
     margin: 0 auto;
-    padding: 15px;
+  }
+  .card-lists {
+    overflow: hidden;
+    .card-lists-slider {
+      display: flex;
+      transform: translateX(-0%)
+    }
+
+    .card {
+      flex: 1;
+      background: #34495e;
+      min-height: 300px;
+      min-width: 100%;
+      padding: 10px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+      border-radius: 5px;
+      color: white;
+      position: relative;
+    }
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 16px;
+    background: #eceff1;
+    box-shadow: 0px 2px 3px rgba(0,0,0,0.2);
+    border: 0;
+  }
+
+  button {
+    padding: 10px 30px;
+    outline: 0;
+    border: 0;
+    font-size: 16px;
+    border-radius: 5px;
+    color: white;
+    &.next, &.previous {
+      position: absolute;
+      bottom: 15px;
+    }
+
+    &.previous {
+      left: 15px;
+      background: #f1c40f;
+    }
+
+    &.next {
+      right: 15px;
+      background: #16a085;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
