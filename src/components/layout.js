@@ -21,7 +21,9 @@ const Layout = ({ children }) => (
       }
     `}
     render={ data => (
-      <main>{children}</main>
+      <div className="body-wrapper">
+        <main>{children}</main>
+      </div>
     )}
   />
 )
