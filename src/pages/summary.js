@@ -33,7 +33,7 @@ const SummaryPage = () => {
                           ? 
                           <img className="summary-image" src={record.answer} alt="user img"></img>
                           : 
-                          <p className="summary-answer"><span role="img" aria-label="thinking">🤔</span>: { record.answer}</p>}
+                          <p className="summary-answer"><span role="img" aria-label="thinking">🤔</span>: { record.answer || "---" }</p>}
                       </div>
                     )
                   })

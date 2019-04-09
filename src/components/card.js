@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { navigate } from "gatsby"
 import Input from "../components/inputBuilder"
-
+import InputHelper from "../components/helper/formHelper"
 import RecordContext from '../context/RecordContext'
 class Card extends Component {
   constructor(props){
@@ -55,10 +55,27 @@ class Card extends Component {
     return (
       <div className="card">
         <p className="question-title">{question.prompt}</p>
-        <Input key={question.id} question={question} handleInput={this.onHandleInput}></Input>
-        { isPreviousButtonNeeded && <button className="previous" onClick={this.handlePreviousButton} >Previous</button> }
-        <button className="next" disabled={this.state.disabled} onClick={this.handleNextButton} data-submit={isSubmitButton}>
-          { isSubmitButton ? "Submit" : "Next"}
+        <InputHelper 
+          is_required={question.is_required} 
+          min_char_length={question.min_char_length} 
+          current_input={this.state.answer}/>
+        <Input 
+          key={question.id}
+          question={question}
+          handleInput={this.onHandleInput}>
+        </Input>
+        { isPreviousButtonNeeded
+          && 
+          <button className="previous" 
+            onClick={this.handlePreviousButton}>
+            Previous
+          </button>
+        }
+        <button className="next"
+          disabled={this.state.disabled}
+          onClick={this.handleNextButton}
+          data-submit={isSubmitButton}>
+            { isSubmitButton ? "Submit" : "Next"}
         </button>
       </div>
     )
