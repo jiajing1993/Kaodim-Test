@@ -27,10 +27,13 @@ const SummaryPage = () => {
                   state.records.map((record, index) => {
                     return (
                       <div className="summary" key={index}>
+                        <p className="summary-title"><span role="img" aria-label="robot">🤖</span>: { record.question }</p>
                         
-                        { typeof record.question === "text" ? (<p className="summary-title">{ record.question }</p>) : (
-                          <img src={record.answer} width="50%"></img>
-                        )}
+                        { record.type === "FileQuestion" 
+                          ? 
+                          <img className="summary-image" src={record.answer} alt="user img"></img>
+                          : 
+                          <p className="summary-answer"><span role="img" aria-label="thinking">🤔</span>: { record.answer}</p>}
                       </div>
                     )
                   })

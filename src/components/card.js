@@ -14,15 +14,16 @@ class Card extends Component {
 
   handleNextButton = (e) => {
     e.preventDefault();
-    this.addRecord(this.props.question.id, this.props.question.prompt, this.state.answer)
+    this.addRecord(this.props.question.id, this.props.question.prompt, this.state.answer, this.props.question.question_type)
     this.next(e.target.dataset.submit === "true")
   }
 
-  addRecord = (id, question, answer) =>{
+  addRecord = (id, question, answer, type) =>{
     this.context.addNewRecord({
       id: id,
       question: question,
-      answer: answer
+      answer: answer,
+      type: type,
     })
   }
 

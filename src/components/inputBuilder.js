@@ -45,7 +45,7 @@ export default class inputBuilder extends Component {
           (
             <div>
               <input type="file" name={`question${question.id}`} onChange={this.onUpload}/>
-              <img src={this.state.img} width="50%"></img>
+              <img src={this.state.img} width="50%" alt="upload img"></img>
             </div>
           )
         }
