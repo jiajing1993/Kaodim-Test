@@ -22,7 +22,7 @@ class index extends Component {
   render(){
     return (
       <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO title="Questions" keywords={[`gatsby`, `application`, `react`]} />
       <h1 className="form-title">{ data.title }</h1>
       <div className="card-lists">
         <div className="card-lists-slider" style={{

@@ -9,7 +9,7 @@ import '../style/summary.scss'
 const SummaryPage = () => {
   return (
     <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO title="Report Summary" keywords={[`gatsby`, `application`, `react`]} />
       <h1 className="form-title">Summary</h1>
       <div className="summary-card">
         <div className="sumary-list">
